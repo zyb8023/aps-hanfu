@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc --build && node ./dist/app.js",
-    "watch": "supervisor yarn start",
+    "watch": "supervisor npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zyb",
@@ -14,5 +14,8 @@
     "koa": "^2.13.0",
     "koa-body": "^4.2.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
 }
