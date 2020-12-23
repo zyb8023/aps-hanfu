@@ -3,19 +3,23 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --build && node ./dist/app.js",
-    "watch": "supervisor npm run start",
+    "start": "tsc && node dist/app.js",
+    "watch": "nodemon --ext js,ts --exec yarn start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zyb",
   "license": "ISC",
   "dependencies": {
-    "@types/koa": "^2.11.6",
     "koa": "^2.13.0",
-    "koa-body": "^4.2.0"
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.0.0"
   },
   "description": "",
   "devDependencies": {
+    "@types/koa": "^2.11.6",
+    "@types/koa-router": "^7.4.1",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   }
 }

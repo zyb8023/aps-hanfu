@@ -1,14 +1,16 @@
-import * as koa from "koa";
-import koaBody from "koa-body";
-
-const Koa = require('koa');
+import * as Koa from 'koa';
+import * as Router from 'koa-router';
 
 const app = new Koa();
+const router = new Router();
 
-app.use(async(ctx: koa.BaseContext) => {
-    ctx.body = 'qqqqqq';
-})
+router.get('/', async (ctx) => {
+    ctx.body = 'Hello World!1111222';
+});
 
-app.listen(3000, () => {
-    console.log('server srart at 3000')
-})
+app.use(router.routes());
+
+app.listen(3000);
+
+console.log('Server running on port 3000');
+
