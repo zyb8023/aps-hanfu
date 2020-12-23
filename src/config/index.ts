@@ -2,7 +2,8 @@ interface sqlConfig {
   host: string,
   user: string,
   password: string,
-  database : string
+  database : string,
+  connectionLimit?:number,
 }
 
 const mysqlConfig: sqlConfig = {
