@@ -1,8 +1,8 @@
 interface sqlConfig {
-  host: String,
-  user: String,
-  password: String,
-  database : String
+  host: string,
+  user: string,
+  password: string,
+  database : string
 }
 
 const mysqlConfig: sqlConfig = {
@@ -12,4 +12,6 @@ const mysqlConfig: sqlConfig = {
   database : 'hanfu'
 }
 
-
+export {
+  mysqlConfig
+}
