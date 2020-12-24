@@ -4,14 +4,15 @@ const mysql = require("mysql");
 const config_1 = require("../config");
 const pool = mysql.createPool(config_1.mysqlConfig);
 const connectSql = (sql, value) => {
-    pool.getConnection((err, connection) => {
-        if (err)
-            throw err;
-        connection.query(sql, value, (error, results, fields) => {
-            if (error)
-                throw error;
-            console.log(results);
-            return results;
+    return new Promise((resolve) => {
+        pool.getConnection((err, connection) => {
+            if (err)
+                throw err;
+            connection.query(sql, value, (error, results, fields) => {
+                if (error)
+                    throw error;
+                resolve(results);
+            });
         });
     });
 };

@@ -10,14 +10,16 @@ interface QueryValue {
 
 
 const connectSql = (sql: string, value?: QueryValue ) => {
+  return new Promise((resolve) => {
     pool.getConnection((err, connection) => {
-        if(err) throw err;
-        connection.query(sql, value, (error, results, fields) => {
-            if(error) throw error;
-            console.log(results);
-            return results;
-        })
-    })
+      if(err) throw err;
+      connection.query(sql, value, (error, results, fields) => {
+          if(error) throw error;
+          resolve(results);
+      })
+  })
+  })
+   
 }
 
 

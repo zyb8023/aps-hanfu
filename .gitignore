@@ -10,13 +10,6 @@ logs
 
 # testing
 /coverage
-
-# production
-_next
-.next
-build
-# development
-_next_dev
 out
 
 # misc
@@ -31,3 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
+
+dist
