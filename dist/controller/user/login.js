@@ -5,7 +5,7 @@ const LoginController = async (ctx) => {
     const sql = 'select * from user_info where ?';
     try {
         const result = await mysql_1.default(sql, { user_name: 'admin' });
-        ctx.body = result;
+        ctx.body = ctx.req;
     }
     catch (error) {
         ctx.body = {
