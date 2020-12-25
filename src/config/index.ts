@@ -8,7 +8,7 @@ interface sqlConfig {
 
 const mysqlConfig: sqlConfig = {
   host: '81.68.185.14',
-  user: 'root',
+  user: 'han_fu',
   password: 'Zhao.8023',
   database : 'hanfu'
 }
