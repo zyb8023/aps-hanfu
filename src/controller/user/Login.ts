@@ -1,18 +1,10 @@
-import * as Koa from 'koa';
+// import * as Koa from 'koa';
 import connectSql from '../../lib/mysql';
+import { checkLogin } from '../../service/user';
 const LoginController = async (ctx) => {
-
-
-  const sql = 'select * from user_info where ?';
-  try {
-    const result = await connectSql(sql, { user_name: 'admin' });
-    ctx.body = ctx.req;
-  } catch (error) {
-    ctx.body = {
-      code: 500,
-      message: error
-    };
-  }
+  const { userName, userPwd } = ctx.requset.body;
+  let result = checkLogin(userName, userName);
+  
 }
 
 export default LoginController;
