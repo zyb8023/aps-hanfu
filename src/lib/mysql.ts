@@ -17,9 +17,9 @@ const connectSql = (sql: string, value?: QueryValue ) => {
           if(error) throw error;
           resolve(results);
       })
+      connection.release();
+    })
   })
-  })
-   
 }
 
 

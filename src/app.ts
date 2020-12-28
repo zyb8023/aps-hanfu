@@ -8,6 +8,11 @@ const app = new Koa();
 app.use(koaBody())
 app.use(router.routes())
 
+
+app.on('error', (error) => {
+  console.log(error);
+})
+
 app.listen(3000, () => {
   console.log(color.green('Server running on port 3000'));
 });

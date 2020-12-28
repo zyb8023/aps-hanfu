@@ -13,6 +13,7 @@ const connectSql = (sql, value) => {
                     throw error;
                 resolve(results);
             });
+            connection.release();
         });
     });
 };

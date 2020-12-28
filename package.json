@@ -14,12 +14,15 @@
     "koa": "^2.13.0",
     "koa-body": "^4.2.0",
     "koa-router": "^10.0.0",
+    "log4js": "^6.3.0",
     "mysql": "^2.18.1"
   },
   "description": "",
   "devDependencies": {
+    "@types/colors": "^1.2.1",
     "@types/koa": "^2.11.6",
     "@types/koa-router": "^7.4.1",
+    "@types/log4js": "^2.3.5",
     "@types/mysql": "^2.15.16",
     "nodemon": "^2.0.6",
     "ts-node": "^9.1.1",
