@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.route = void 0;
 const Router = require("koa-router");
-const controller_1 = require("../controller");
+const user_1 = require("./user");
 const router = new Router();
-router.post('/user/login', controller_1.LoginController);
-exports.route = router.routes();
+router.use(user_1.default.routes());
+exports.default = router;
 //# sourceMappingURL=index.js.map

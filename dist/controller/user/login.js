@@ -1,18 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mysql_1 = require("../../lib/mysql");
-const LoginController = async (ctx) => {
-    const sql = 'select * from user_info where ?';
-    try {
-        const result = await mysql_1.default(sql, { user_name: 'admin' });
-        ctx.body = ctx.req;
-    }
-    catch (error) {
-        ctx.body = {
-            code: 500,
-            message: error
-        };
-    }
+// import * as Koa from 'koa';
+const user_1 = require("../../service/user");
+const LoginController = async (ctx, next) => {
+    await next();
+    const request = ctx.request;
+    let { userName, userPwd } = request.body;
+    let result = await user_1.checkLogin(userName, userPwd);
+    ctx.body = result;
 };
 exports.default = LoginController;
 //# sourceMappingURL=Login.js.map

@@ -1,7 +1,7 @@
 import * as Router from 'koa-router';
-import { LoginController } from '../controller';
+import userRouter from './user';
 const router = new Router();
 
-router.post('/user/login', LoginController);
+router.use(userRouter.routes());
 
-export const route = router.routes();
+export default router;
