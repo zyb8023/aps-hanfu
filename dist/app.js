@@ -18,19 +18,23 @@ const CONFIG = {
     signed: true,
 };
 async function logger(ctx, next) {
-    infoLog.info(ctx);
+    // infoLog.info(ctx);
     next();
 }
 app.use(session(CONFIG, app));
 app.use(cors());
-app.use(koaBody());
+app.use(koaBody({
+    multipart: true,
+    formidable: {
+        maxFileSize: 200 * 1024 * 1024 // 设置上传文件大小最大限制，默认2M
+    }
+}));
 app.use(route_1.default.routes());
 app.use(logger);
 app.on('error', (error) => {
     console.log(error);
 });
 app.listen(3000, () => {
-    infoLog.info('1111111111111111');
     console.log(color.green('Server running on port 3000'));
 });
 //# sourceMappingURL=app.js.map
