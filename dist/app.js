@@ -22,12 +22,20 @@ async function logger(ctx, next) {
     next();
 }
 app.use(session(CONFIG, app));
-app.use(cors());
+// 解决跨域
+app.use(cors({
+    origin: function (ctx) {
+        return '*'; // 允许来自所有域名请求
+        //  return 'http://localhost:8080';
+    },
+    maxAge: 5,
+    credentials: true,
+}));
 app.use(koaBody({
     multipart: true,
     formidable: {
-        maxFileSize: 200 * 1024 * 1024 // 设置上传文件大小最大限制，默认2M
-    }
+        maxFileSize: 200 * 1024 * 1024,
+    },
 }));
 app.use(route_1.default.routes());
 app.use(logger);
